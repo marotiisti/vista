@@ -9,6 +9,8 @@
 <body class="d-flex flex-column h-100 bg-light">
     <div class="container-fluid d-flex flex-column align-items-center justify-content-center vh-100">
         <a role="button" class="btn btn-success" href="contacts.php">Kontaktok megnyitása</a>
+        <br>
+        <a role="button" class="btn btn-success" href="companies.php">Cégek megnyitása</a>
     </div>
 </body>
 </html>
