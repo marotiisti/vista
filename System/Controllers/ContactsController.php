@@ -50,6 +50,31 @@ class ContactsController {
         }
     }
 
+    /**
+     * Ez a függvény visszaadja a szerkeszteni kívánt kontakt összes e-mail címét akt osztályon keresztül.
+     *
+     * @return Contact A kontakt objektum
+     * @throws Exception Kivételkezés, ha adatbázis hiba történik a lekérdezés során.
+     */
+    public function getContactEmails($id) {
+
+        try {
+            // Adatbázis kapcsolat létrehozása
+            $database = new Database();
+
+            // Kontaktok lekérése az adatbázisból
+            $contact = new Contact($database, $id);
+
+            // A kontakt e-mail címeinek lekérése
+            $emails = $contact->getEmails();
+
+            // A kontaktok visszaadása
+            return $emails;
+        } catch (Exception $error) {
+            throw new Exception("Hiba a kontaktok lekérdezésekor: " . $error->getMessage());
+        }
+    }
+
 }
 
 /**

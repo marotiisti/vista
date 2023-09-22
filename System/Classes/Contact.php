@@ -75,6 +75,27 @@ class Contact {
         }
     }
 
+    /**
+     * Ez a függvény visszaadja a kontakthoz tartozó e-mail címeket
+     *
+     * @return array Az összes kontakthoz tartozó e-mail címet tartalmazó tömb.
+     * @throws Exception Kivételkezelés, ha adatbázis lekérdezési hiba történik.
+     */
+    public function getEmails() {
+        try {
+            $query = "SELECT * FROM emails WHERE contact_id = :contact_id";
+            $params = [
+                ":contact_id" => $this->id,
+            ];
+
+            $emails = $this->db->select($query, $params);
+
+            return $emails;
+        } catch (Exception $error) {
+            throw new Exception("Hiba az e-mail címek lekérdezésekor: " . $error->getMessage());
+        }
+    }
+
 
     /**
      * Ez a függvény elmenti a létrehozott kontakt objektumot az adatbázisba.

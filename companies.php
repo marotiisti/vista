@@ -44,9 +44,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-4">
+                <div class="col-lg-4">
                     <div class="card p-4 rounded border">
-                        <h6 class="mb-3"><?= $editor ? 'Kontakt szerkesztése' : 'Kontakt létrehozása' ?></h6>
+                        <h6 class="mb-3"><?= $editor ? 'Cég szerkesztése' : 'Cég létrehozása' ?></h6>
                         <form action="System/Controllers/CompaniesController.php" method="POST">
                             <input type="hidden" name="id" value="<?= $editor ? $companyData->id : '' ?>">
                             <div class="mb-3">
@@ -73,7 +73,7 @@
                                 <button type="submit" class="btn btn-success"><?= $editor ? 'Mentés' : 'Létrehozás' ?></button>
                             </div>
 
-                            <?php if(isset($_GET["edit"])): ?>
+                            <?php if($editor): ?>
                                 <div class="text-center text-secondary mt-3">--- vagy ---</div>
                                 <div class="d-grid gap-2 mt-3">
                                     <a role="button" class="btn btn-light border" href="companies.php">Új létrehozása</a>
@@ -89,13 +89,14 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-8">
+                <div class="col-lg-8">
                     <?php if(isset($_GET["success"])): ?>
                         <div class="mb-3 alert alert-success small" role="alert">
                             Sikeres művelet!
                         </div>
                     <?php endif; ?>
                     <div class="card p-4 rounded border">
+                        <h6 class="mb-3">Cégek</h6>
                         <table class="table">
                             <thead>
                                 <tr>

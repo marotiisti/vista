@@ -18,6 +18,8 @@
     $editor  = false;
     if(isset($_GET["edit"])){
         $contactData = (new ContactsController())->getContactData($_GET["edit"]);
+        $contactEmails = ((new ContactsController())->getContactEmails($_GET["edit"]));
+
         if(!empty($contactData)){
             $editor = true;
         }
@@ -41,7 +43,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-4">
+                <div class="col-lg-4">
                     <div class="card p-4 rounded border">
                         <h6 class="mb-3"><?= $editor ? 'Kontakt szerkesztése' : 'Kontakt létrehozása' ?></h6>
                         <form action="System/Controllers/ContactsController.php" method="POST">
@@ -65,14 +67,14 @@
                                 <button type="submit" class="btn btn-success"><?= $editor ? 'Mentés' : 'Létrehozás' ?></button>
                             </div>
 
-                            <?php if(isset($_GET["edit"])): ?>
+                            <?php if($editor): ?>
                                 <div class="text-center text-secondary mt-3">--- vagy ---</div>
                                 <div class="d-grid gap-2 mt-3">
                                     <a role="button" class="btn btn-light border" href="contacts.php">Új létrehozása</a>
                                 </div>
                             <?php endif; ?>
 
-                            <?php if(!empty($errors["server"])): ?>
+                            <?php if(!empty($errors["server"]) && empty($errors["email"])): ?>
                                 <div class="my-3 alert alert-warning small" role="alert">
                                     <?= $errors["server"] ?>
                                 </div>
@@ -80,14 +82,46 @@
 
                         </form>
                     </div>
+
+                    <?php if($editor): ?>
+                        <div class="card p-4 rounded border mt-3">
+                            <h6 class="mb-3">Kontakt e-mail címei</h6>
+                            <?php foreach ($contactEmails as $email): ?>
+                                <div class="border-bottom py-2">
+                                    <strong><?= $email["email"] ?></strong>
+                                    <a role="button" href="System/Controllers/EmailsController.php?deleteEmail=<?= $email["id"] ?>&contactId=<?= $contactData->id ?>" class="btn btn-sm btn-danger ms-2">
+                                        Eltávolítás
+                                    </a>
+                                </div>
+                            <?php endforeach; ?>
+                            <form action="System/Controllers/EmailsController.php" method="POST">
+                                <input type="hidden" name="contact_id" value="<?= $contactData->id ?>">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Új hozzáadása</label>
+                                    <input type="email" class="form-control <?php if(!empty($errors["email"])){ echo "is-invalid"; } ?>" id="email" name="email" autocomplete="off" placeholder="E-mail cím">
+                                    <div class="invalid-feedback"><?php if(!empty($errors["email"])){ echo $errors["email"]; } ?></div>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-success">Hozzáadás</button>
+                                </div>
+                                <?php if(!empty($errors["email"])): ?>
+                                    <div class="my-3 alert alert-warning small" role="alert">
+                                        <?= $errors["email"] ?>
+                                    </div>
+                                <?php endif; ?>
+                            </form>
+                        </div>
+                    <?php endif; ?>
+
                 </div>
-                <div class="col-8">
+                <div class="col-lg-8">
                     <?php if(isset($_GET["success"])): ?>
                         <div class="mb-3 alert alert-success small" role="alert">
                             Sikeres művelet!
                         </div>
                     <?php endif; ?>
                     <div class="card p-4 rounded border">
+                        <h6 class="mb-3">Kontaktok</h6>
                         <table class="table">
                             <thead>
                                 <tr>

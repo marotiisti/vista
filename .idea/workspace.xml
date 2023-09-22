@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4777394-b5e3-4ce3-8a5f-78bf5130c8fd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/2.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System/Classes/Company.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System/Controllers/CompaniesController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/companies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/System/Classes/Email.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/System/Controllers/EmailsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e31f16b6-d79f-40aa-811f-6d4b89ff561a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e31f16b6-d79f-40aa-811f-6d4b89ff561a.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e31f16b6-d79f-40aa-811f-6d4b89ff561a/storage_v2/_src_/schema/feladat.o5g0xg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e31f16b6-d79f-40aa-811f-6d4b89ff561a/storage_v2/_src_/schema/feladat.o5g0xg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/Classes/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/System/Classes/Contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/Controllers/ContactsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/System/Controllers/ContactsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/companies.php" beforeDir="false" afterPath="$PROJECT_DIR$/companies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts.php" beforeDir="false" afterPath="$PROJECT_DIR$/contacts.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +63,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1695215212009</updated>
-      <workItem from="1695215213129" duration="40173000" />
+      <workItem from="1695215213129" duration="51271000" />
     </task>
     <servers />
   </component>
