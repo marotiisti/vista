@@ -150,7 +150,7 @@ if(isset($_GET["delete"])){
     try {
         $database = new Database();
 
-        $company = new Contact($database, $_GET["delete"]);
+        $company = new Company($database, $_GET["delete"]);
 
         if(!$company){
             throw new Exception("A törlésre jelölt rekord nem található!");
